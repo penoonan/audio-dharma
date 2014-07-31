@@ -45,6 +45,8 @@ return array(
     'AudioDharma\\SettingsMenu' => $baseDir . '/app/SettingsMenu.php',
     'AudioDharma\\SettingsMenuHandler' => $baseDir . '/app/SettingsMenuHandler.php',
     'AudioDharma\\Teacher' => $baseDir . '/app/Teacher.php',
+    'Pimple\\Container' => $vendorDir . '/Pimple/Container.php',
+    'Pimple\\ServiceProviderInterface' => $vendorDir . '/Pimple/ServiceProviderInterface.php',
     'Zend_Bit_Twiddling' => $vendorDir . '/php-reader/library/Zend/Bit/Twiddling.php',
     'Zend_Exception' => $vendorDir . '/php-reader/library/Zend/Exception.php',
     'Zend_Io_Exception' => $vendorDir . '/php-reader/library/Zend/Io/Exception.php',
