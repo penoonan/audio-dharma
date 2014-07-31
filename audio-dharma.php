@@ -24,7 +24,7 @@ use AudioDharma\SettingsMenu;
 use AudioDharma\SettingsMenuHandler;
 use AudioDharma\Teacher;
 
-//ini_set('display_errors', -1); error_reporting(E_ALL);
+ini_set('display_errors', -1); error_reporting(E_ALL);
 $app = require_once(__DIR__ . '/bootstrap.php');
 
 $dt_metabox = new DharmaTalkMetabox(
