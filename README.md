@@ -21,7 +21,7 @@ There is one **significant gotcha:** MP3 Metadata edits are made using the Zend 
 
 Fortunately for us, the good people at Zend are very consistent - they always use `require_once` and they always have it alone on its own line. This created the opportunity for a terrible, terrible hack: using search & replace to put `//` at the beginning of all the `require_once` lines, thus commenting them out.
 
-There's probably a better way to do that, and I'm probably missing something dumb. But this arrangement should be okay, since the library is not listed as a required dependency in this plugin's `composer.json` (it's not even on packagist - I just dropped it into the vendor dir and used an autoload classmap) and is unlikely to ever need updating. However, if you ever *do* need to update it, here is the command to reproduce the aforementioned hack, since those changes will have been overwritten upon the update:
+There's probably a better way to do that, and I'm probably missing something obvious. But this arrangement should be okay, since the library is not listed as a required dependency in this plugin's `composer.json` (it's not even on packagist - I just dropped it into the vendor dir and used an autoload classmap) and is unlikely to ever need updating. However, if you ever *do* need to update it, here is the command to reproduce the aforementioned hack, since those changes will have been overwritten upon the update:
 
     cd path/to/audio-dharma/vendor/php-reader/library/Zend
     find . -type f -print0 | xargs -0 sed -i '' 's/require_once/\/\/require_once/g'
