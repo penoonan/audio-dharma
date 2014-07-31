@@ -11,7 +11,7 @@ This plugin was created for the [Common Ground Meditation Center](http://commong
 
 ##Installation
 
-Note that this project is still in development. To install, download this repository zip file, unzip it, rename it to "audio-dharma", and upload it to your site's plugin directory.
+Note that this project is still in development. To install, download this repository zip file, unzip it, rename the folder to "audio-dharma", and upload it to your site's plugin directory.
 
 ##Developer Notes
 
