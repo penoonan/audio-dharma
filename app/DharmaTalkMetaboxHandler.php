@@ -54,7 +54,7 @@ class DharmaTalkMetaboxHandler implements MetaboxHandler {
 
     public function save($post_id, $post)
     {
-        if (empty($post['post_type']) || $post['post_type'] !== 'audio_dharma' || (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE === true)) {
+        if (empty($post['post_type']) || $post['post_type'] !== 'dharma_talk' || (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE === true)) {
             return null;
         }
 
