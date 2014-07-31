@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "29572a8a90c419ff06fd2429af2d7cd6",
+    "hash": "feb9f6914b3a60408d50beda7c8f56a4",
     "packages": [
         {
             "name": "league/plates",
@@ -53,16 +53,16 @@
         },
         {
             "name": "pimple/pimple",
-            "version": "v2.1.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Pimple.git",
-                "reference": "ea22fb2880faf7b7b0e17c9809c6fe25b071fd76"
+                "reference": "3764c3985684ad6af4ad3c7d2e0595f9f09faf5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Pimple/zipball/ea22fb2880faf7b7b0e17c9809c6fe25b071fd76",
-                "reference": "ea22fb2880faf7b7b0e17c9809c6fe25b071fd76",
+                "url": "https://api.github.com/repos/fabpot/Pimple/zipball/3764c3985684ad6af4ad3c7d2e0595f9f09faf5f",
+                "reference": "3764c3985684ad6af4ad3c7d2e0595f9f09faf5f",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1.x-dev"
+                    "dev-master": "3.0.x-dev"
                 }
             },
             "autoload": {
@@ -95,7 +95,7 @@
                 "container",
                 "dependency injection"
             ],
-            "time": "2014-07-24 07:10:08"
+            "time": "2014-07-29 17:32:26"
         }
     ],
     "packages-dev": [

@@ -48,30 +48,30 @@
     },
     {
         "name": "pimple/pimple",
-        "version": "v2.1.1",
-        "version_normalized": "2.1.1.0",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/fabpot/Pimple.git",
-            "reference": "ea22fb2880faf7b7b0e17c9809c6fe25b071fd76"
+            "reference": "3764c3985684ad6af4ad3c7d2e0595f9f09faf5f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/fabpot/Pimple/zipball/ea22fb2880faf7b7b0e17c9809c6fe25b071fd76",
-            "reference": "ea22fb2880faf7b7b0e17c9809c6fe25b071fd76",
+            "url": "https://api.github.com/repos/fabpot/Pimple/zipball/3764c3985684ad6af4ad3c7d2e0595f9f09faf5f",
+            "reference": "3764c3985684ad6af4ad3c7d2e0595f9f09faf5f",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.0"
         },
-        "time": "2014-07-24 07:10:08",
+        "time": "2014-07-29 17:32:26",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "2.1.x-dev"
+                "dev-master": "3.0.x-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-0": {
                 "Pimple": "src/"
