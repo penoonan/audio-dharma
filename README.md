@@ -9,6 +9,10 @@ The purpose is to ease the process of taking a raw audio recording of a dharma t
 
 This plugin was created for the [Common Ground Meditation Center](http://commongroundmeditation.org/).
 
+##Installation
+
+Note that this project is still in development. To install, download this repository zip file, unzip it, rename it to "audio-dharma", and upload it to your site's plugin directory.
+
 ##Developer Notes
 
 It's all wired together using Pimple and Composer autoloading. Learn more about the design philosophy by reading the docs from [Sketch](https://github.com/sketchwp/app). It's not 100% the same, but it does copy over a lot of code from that project, especially the code you'll find in `app/Base`.
