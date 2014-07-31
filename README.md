@@ -7,7 +7,7 @@ Audio Dharma is a Wordpress plugin tasked with two main features:
 
 The purpose is to ease the process of taking a raw audio recording of a dharma talk and getting it up onto the web.
 
-This plugin was created for the Common Ground Meditation Center.
+This plugin was created for the [Common Ground Meditation Center](http://commongroundmeditation.org/).
 
 ##Developer Notes
 
