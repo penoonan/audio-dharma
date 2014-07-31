@@ -42,7 +42,6 @@ return array(
     'AudioDharma\\Service\\DharmaID3' => $baseDir . '/app/Service/DharmaID3.php',
     'AudioDharma\\Service\\ID3' => $baseDir . '/app/Service/ID3.php',
     'AudioDharma\\Service\\Id3Factory' => $baseDir . '/app/Service/Id3Factory.php',
-    'AudioDharma\\Service\\WpID3' => $baseDir . '/app/Service/WpID3.php',
     'AudioDharma\\SettingsMenu' => $baseDir . '/app/SettingsMenu.php',
     'AudioDharma\\SettingsMenuHandler' => $baseDir . '/app/SettingsMenuHandler.php',
     'AudioDharma\\Teacher' => $baseDir . '/app/Teacher.php',
