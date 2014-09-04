@@ -8,6 +8,16 @@ use AudioDharma\Service\Id3Factory;
 use League\Plates\Engine;
 use League\Plates\Template;
 use Pimple\Container;
+use AudioDharma\Concepts;
+use AudioDharma\DharmaTalk;
+use AudioDharma\DharmaTalkMetabox;
+use AudioDharma\DharmaTalkMetaboxHandler;
+use AudioDharma\Programs;
+use AudioDharma\Repo\AudioFile;
+use AudioDharma\Repo\Teacher as TeacherRepo;
+use AudioDharma\SettingsMenu;
+use AudioDharma\SettingsMenuHandler;
+use AudioDharma\Teacher;
 
 require_once __DIR__ . "/vendor/autoload.php";
 
@@ -41,5 +51,40 @@ $app['id3'] = function($app) {
 $app['request'] = function() {
     return Request::createFromGlobals();
 };
+
+$dt_metabox = new DharmaTalkMetabox(
+  $app['wp'],
+  new DharmaTalkMetaboxHandler(
+    $app['plates'],
+    new TeacherRepo($app['wp']),
+    new AudioFile($app['wp'], $app['id3']),
+    $app['request']
+  )
+);
+
+$teacher = new Teacher($app['wp']);
+$concepts = new Concepts($app['wp']);
+$programs = new Programs($app['wp']);
+
+$talk = new DharmaTalk($app['wp']);
+$talk->addMetabox($dt_metabox);
+$talk->addTaxonomy($concepts);
+$talk->addTaxonomy($programs);
+
+$settings_menu = new SettingsMenu(
+  $app['wp'],
+  new SettingsMenuHandler(
+    $app['plates'],
+    $app['wp'],
+    $app['request']
+  )
+);
+function update_edit_form() {
+    global $post;
+    if ($post->post_type === 'dharma_talk') {
+        echo ' enctype="multipart/form-data"';
+    }
+}
+add_action('post_edit_form_tag', 'update_edit_form');
 
 return $app;
