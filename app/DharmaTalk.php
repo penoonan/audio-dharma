@@ -19,4 +19,17 @@ class DharmaTalk extends BaseCustomPostType {
             'name' => 'Dharma Talks',
             'singular_name' => 'Talk'
         );
+
+    protected function addActions()
+    {
+        $this->wp->add_action('post_edit_form_tag', array($this, 'updateEditForm'));
+    }
+
+    public function updateEditForm()
+    {
+        global $post;
+        if ($post->post_type === 'dharma_talk') {
+            echo ' enctype="multipart/form-data"';
+        }
+    }
 } 

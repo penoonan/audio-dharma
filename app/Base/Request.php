@@ -48,15 +48,20 @@ class Request {
         if (isset($this->$method)) {
             $super_global = $this->$method;
             $property = isset($arguments[0]) ? $arguments[0] : false;
-            if (isset($super_global[$property])) {
-                return $property ? $super_global[$property] : $super_global;
+
+            // if no property was passed as an argument, just return the whole superglobal
+            if (!$property) {
+                return $super_global;
             }
-            if (isset($super_global[strtoupper($property)])) {
-                return $property ? $super_global[strtoupper($property)] : $super_global;
-            }
-            if (isset($super_global[strtolower($property)])) {
-                return $property ? $super_global[strtolower($property)] : $super_global;
-            }
+
+            // return it if it's set
+            if (isset($super_global[$property])) return $super_global[$property];
+
+            // do a couple case insensitive checks before bombing out
+            if (isset($super_global[strtoupper($property)])) return $super_global[strtoupper($property)];
+            if (isset($super_global[strtolower($property)])) return $super_global[strtolower($property)];
+
+            // bomb out
             return false;
         }
     }

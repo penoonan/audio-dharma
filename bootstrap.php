@@ -1,13 +1,13 @@
 <?php
 
+use Pimple\Container;
+use League\Plates\Engine;
+use League\Plates\Template;
 use AudioDharma\Base\Request;
 use AudioDharma\Base\TemplateHelpers;
 use AudioDharma\Base\WpApiWrapper;
 use AudioDharma\Service\DharmaID3;
 use AudioDharma\Service\Id3Factory;
-use League\Plates\Engine;
-use League\Plates\Template;
-use Pimple\Container;
 use AudioDharma\Concepts;
 use AudioDharma\DharmaTalk;
 use AudioDharma\DharmaTalkMetabox;
@@ -21,7 +21,12 @@ use AudioDharma\Teacher;
 
 require_once __DIR__ . "/vendor/autoload.php";
 
+// Configure the DI container!
 $app = new Container();
+
+$app['request'] = function() {
+    return Request::createFromGlobals();
+};
 
 $app['wp'] = function() { return new WpApiWrapper(); };
 
@@ -48,18 +53,18 @@ $app['id3'] = function($app) {
     return $id3;
 };
 
-$app['request'] = function() {
-    return Request::createFromGlobals();
-};
+
+
+// Instantiate all the metaboxes and post types and whatnot!
 
 $dt_metabox = new DharmaTalkMetabox(
-  $app['wp'],
-  new DharmaTalkMetaboxHandler(
-    $app['plates'],
-    new TeacherRepo($app['wp']),
-    new AudioFile($app['wp'], $app['id3']),
-    $app['request']
-  )
+    $app['wp'],
+    new DharmaTalkMetaboxHandler(
+        $app['plates'],
+        new TeacherRepo($app['wp']),
+        new AudioFile($app['wp'], $app['id3']),
+        $app['request']
+    )
 );
 
 $teacher = new Teacher($app['wp']);
@@ -72,19 +77,12 @@ $talk->addTaxonomy($concepts);
 $talk->addTaxonomy($programs);
 
 $settings_menu = new SettingsMenu(
-  $app['wp'],
-  new SettingsMenuHandler(
-    $app['plates'],
     $app['wp'],
-    $app['request']
-  )
+    new SettingsMenuHandler(
+        $app['plates'],
+        $app['wp'],
+        $app['request']
+    )
 );
-function update_edit_form() {
-    global $post;
-    if ($post->post_type === 'dharma_talk') {
-        echo ' enctype="multipart/form-data"';
-    }
-}
-add_action('post_edit_form_tag', 'update_edit_form');
 
 return $app;

@@ -74,7 +74,7 @@ abstract class BaseCustomPostType implements CustomPostTypeInterface {
     /**
      * @var
      */
-    private $wp;
+    protected $wp;
 
     protected $metaboxes = array();
 
@@ -82,6 +82,7 @@ abstract class BaseCustomPostType implements CustomPostTypeInterface {
     {
         $this->wp = $wp;
         $this->wp->add_action('init', array($this, 'register'));
+        $this->addActions();
     }
 
     public function register()
@@ -162,4 +163,5 @@ abstract class BaseCustomPostType implements CustomPostTypeInterface {
         return count($vals) > 0 ? $vals : null;
     }
 
+    protected function addActions() {}
 } 
