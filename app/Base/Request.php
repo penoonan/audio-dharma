@@ -6,8 +6,8 @@ namespace AudioDharma\Base;
  * Class Request
  * This is somewhat modeled after the Symfony request object, insofar as it has a "createFromGlobals" method.
  * It's a pretty simple DTO used to help avoid references to superglobals throughout the app.
- * @package AudioDharma\Base
  */
+
 class Request {
 
     private
